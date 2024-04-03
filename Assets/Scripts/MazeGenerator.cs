@@ -109,32 +109,59 @@ public class MazeGenerator : MonoBehaviour
             return;
         }
 
-        if (previousCell.transform.position.x < currentCell.transform.position.x)
+        int x = (int)currentCell.transform.position.x;
+        int z = (int)currentCell.transform.position.z;
+
+        if (x + 1 < _mazeWidth)
         {
-            previousCell.ClearRightWall();
-            currentCell.ClearLeftWall();
-            return;
+            var cellToRight = _mazeGrid[x + 1, z];
+
+            if (cellToRight.IsVisited)
+            {
+                if (previousCell.transform.position.x == cellToRight.transform.position.x)
+                    previousCell.ClearLeftWall();
+
+                currentCell.ClearRightWall();
+            }
         }
 
-        if (previousCell.transform.position.x > currentCell.transform.position.x)
+        if (x - 1 >= 0)
         {
-            previousCell.ClearLeftWall();
-            currentCell.ClearRightWall();
-            return;
+            var cellToLeft = _mazeGrid[x - 1, z];
+
+            if (cellToLeft.IsVisited)
+            {
+                if (previousCell.transform.position.x == cellToLeft.transform.position.x)
+                    previousCell.ClearRightWall();
+
+                currentCell.ClearLeftWall();
+            }
         }
 
-        if (previousCell.transform.position.z < currentCell.transform.position.z)
+        if (z + 1 < _mazeDepth)
         {
-            previousCell.ClearFrontWall();
-            currentCell.ClearBackWall();
-            return;
+            var cellToFront = _mazeGrid[x, z + 1];
+
+            if (cellToFront.IsVisited)
+            {
+                if (previousCell.transform.position.z == cellToFront.transform.position.z)
+                    previousCell.ClearBackWall();
+
+                currentCell.ClearFrontWall();
+            }
         }
 
-        if (previousCell.transform.position.z > currentCell.transform.position.z)
+        if (z - 1 >= 0)
         {
-            previousCell.ClearBackWall();
-            currentCell.ClearFrontWall();
-            return;
+            var cellToBack = _mazeGrid[x, z - 1];
+
+            if (cellToBack.IsVisited)
+            {
+                if (previousCell.transform.position.z == cellToBack.transform.position.z)
+                    previousCell.ClearFrontWall();
+
+                currentCell.ClearBackWall();
+            }
         }
     }
 }
