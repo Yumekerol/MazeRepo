@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class PlayerInventory : MonoBehaviour
 {
+    public CongratsScreen congratsScreen;
     public int NumberOfDiamonds {  get; private set; }
 
     public UnityEvent<PlayerInventory> OnDiamondCollected;
@@ -12,7 +13,16 @@ public class PlayerInventory : MonoBehaviour
     {
         NumberOfDiamonds++;
         OnDiamondCollected.Invoke(this);
+
+        if(NumberOfDiamonds == 2)
+        {
+            Congrats();
+        }
     }
 
-    
+    public void Congrats()
+    {
+        congratsScreen.Setup();
+    }
 }
+
