@@ -8,12 +8,25 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
     float elapsedTime;
-
-    void Update() {
-
-        elapsedTime += Time.deltaTime;
-        int minutes = Mathf.FloorToInt(elapsedTime / 60);
-        int seconds = Mathf.FloorToInt(elapsedTime % 60);
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    public static float pausedTime;
+    public static float highscore;
+    bool isPaused = false; // Adicionando a declaração de isPaused
+    public static float bestTime = Mathf.Infinity;
+    void Update()
+    {
+        if (!isPaused)
+        {
+            elapsedTime += Time.deltaTime;
+            int minutes = Mathf.FloorToInt(elapsedTime / 60);
+            int seconds = Mathf.FloorToInt(elapsedTime % 60);
+            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        }
     }
+
+    public void PauseTimer()
+    {
+        isPaused = true;
+        pausedTime = elapsedTime;
+    }
+
 }
