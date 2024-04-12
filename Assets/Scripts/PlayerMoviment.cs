@@ -83,7 +83,7 @@ public class PlayerMoviment : MonoBehaviour
         }
     }
 
-    private void OnApplicationFocus(bool focus)
+    /*private void OnApplicationFocus(bool focus)
     {
         if (focus)
         {
@@ -93,5 +93,5 @@ public class PlayerMoviment : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
         }
-    }
+    }*/
 }
