@@ -6,16 +6,18 @@ using UnityEngine.AI;
 public class EnemyNavigation : MonoBehaviour
 {
     [SerializeField]
-    private Vector3 _desiredDestination;
+    public Vector3 _desiredDestination;
+    public Transform player;
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<NavMeshAgent>().destination = _desiredDestination;
+        GetComponent<NavMeshAgent>().destination = player.position;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Start();
     }
 }
