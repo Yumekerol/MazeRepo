@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class NewBehaviourScript1 : MonoBehaviour
 {
     private TextMeshProUGUI diamondText;
@@ -17,4 +18,5 @@ public class NewBehaviourScript1 : MonoBehaviour
         diamondText.text = playerInventory.NumberOfDiamonds.ToString();
 
     }
+
 }
