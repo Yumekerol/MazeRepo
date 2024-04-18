@@ -24,5 +24,7 @@ public class PlayerInventory : MonoBehaviour
     {
         congratsScreen.Setup();
     }
+
+
 }
 
