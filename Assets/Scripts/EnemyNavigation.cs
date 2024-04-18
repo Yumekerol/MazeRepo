@@ -8,16 +8,17 @@ public class EnemyNavigation : MonoBehaviour
     [SerializeField]
     public Vector3 _desiredDestination;
     public Transform player;
+    public NavMeshAgent agent;
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<NavMeshAgent>().destination = player.position;
+        agent = GetComponent<NavMeshAgent>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        Start();
+        agent.SetDestination(player.position);
     }
 }
