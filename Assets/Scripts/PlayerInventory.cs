@@ -16,7 +16,7 @@ public class PlayerInventory : MonoBehaviour
         NumberOfDiamonds++;
         OnDiamondCollected.Invoke(this);
 
-        if(NumberOfDiamonds == 2)
+        if(NumberOfDiamonds == 15)
         {
             Congrats();
         }
