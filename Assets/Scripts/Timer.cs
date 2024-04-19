@@ -7,11 +7,11 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
-    float elapsedTime;
+    public float elapsedTime;
     public static float pausedTime;
     public static float highscore;
     bool isPaused = false; // Adicionando a declaração de isPaused
-    public static float bestTime = Mathf.Infinity;
+    
     void Update()
     {
         if (!isPaused)
@@ -27,6 +27,7 @@ public class Timer : MonoBehaviour
     {
         isPaused = true;
         pausedTime = elapsedTime;
+        elapsedTime = 0f;
     }
 
 }
