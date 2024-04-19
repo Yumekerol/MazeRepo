@@ -8,5 +8,6 @@ public class BackGroundScript : MonoBehaviour
     public void MenuGame()
     {
         SceneManager.LoadSceneAsync(0);
+        
     }
 }

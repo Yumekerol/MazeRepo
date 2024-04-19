@@ -22,12 +22,14 @@ public class CongratsScreen : MonoBehaviour
     public void MenuGame()
     {
         SceneManager.LoadSceneAsync(0);
+        Time.timeScale = 1;
+        
     }
 
     public void Pause()
     {
         PausePanel.SetActive(true);
-        Time.timeScale = 0;
+        
     }
 
     public void DisplayTime()
